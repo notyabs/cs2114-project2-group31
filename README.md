@@ -41,5 +41,10 @@ We will finish and test moving and swapping songs, since both methods are alread
 
 What new tests will you need? The methods and bad-input cases the added work must cover.
 
+We will need tests for the remaining user and library features, including creating playlists, adding and retrieving them, and keeping each user’s library separate.
 
 Who does what? Which team member owns each remaining item.
+
+Yabsira - Finish implementing/testing stretch goals
+Ujay - Implement library class/tests
+Andrew - Implement user class/build console menu
