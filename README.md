@@ -49,9 +49,11 @@ Ujay - Implement library class/tests
 Andrew - Implement user class/build console menu
 
 ## Attribution
+
 | Class | Contributor | Method |
-----------------------------------
+|-------|-------------|--------|
 | Playlist | Yabsira | GenAI drafted class |
-| PlaylistTest | Andrew, Yabsira | Test case drafting assistance,  |
+| PlaylistTest | Andrew, Yabsira | Gen AI assisted in test case formulation, test case revision  |
 | Song | Andrew | Partially GenAI drafted *last method* |
+| SongTest | Andrew, Yabsira | Gen AI assisted in test case formulation, test case revision |
 | Main | Ujay | GenAI assisted |
