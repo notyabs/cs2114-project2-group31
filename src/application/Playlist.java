@@ -32,19 +32,19 @@ public class Playlist {
      * @return true if added successfully.
      * @throws IllegalArgumentException if the song is null.
      */
-    public boolean addSong(Song songs) {
-        if (songs == null) {
+    public boolean addSong(Song song) {
+        if (song == null) {
             throw new IllegalArgumentException("Cannot add a null song to the playlist.");
         }
-        return songs.addToEnd(songs);
+        return songs.addToEnd(song);
     }
 
-    public boolean removeSong(Song songs) {
-        return songs.remove(songs);
+    public boolean removeSong(Song song) {
+        return songs.remove(song);
     }
 
-    public boolean containsSong(Song songs) {
-        return songs.contains(songs);
+    public boolean containsSong(Song song) {
+        return songs.contains(song);
     }
 
     public Song getSong(int index) {
@@ -67,7 +67,7 @@ public class Playlist {
         }
 
         // LinkedChain.toArray requires an initialized array of the correct type and size
-        Song[] songArray = song.toArray(new Song[size]);
+        Song[] songArray = songs.toArray(new Song[size]);
         int totalSeconds = 0;
         
         for (Song s : songArray) {
@@ -78,11 +78,11 @@ public class Playlist {
     }
 
     public boolean isEmpty() {
-        return song.isEmpty();
+        return songs.isEmpty();
     }
 
     public void clear() {
-        song.clear();
+        songs.clear();
     }
 
     /**
