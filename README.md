@@ -56,4 +56,4 @@ Andrew - Implement user class/build console menu
 | PlaylistTest | Andrew, Yabsira | Gen AI assisted in test case formulation, test case revision  |
 | Song | Andrew | Partially GenAI drafted *last method* |
 | SongTest | Andrew, Yabsira | Gen AI assisted in test case formulation, test case revision |
-| Main | Ujay | GenAI assisted |
+| PlaylistSimulation | Ujay, Yabsira | GenAI assisted in handling User input and displaying state of playlist after changes |
