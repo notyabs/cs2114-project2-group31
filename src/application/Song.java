@@ -1,9 +1,12 @@
+
 package application;
 
-/**
- * Represents a song with a title, artist, genre, and duration in seconds.
- */
+import java.util.Objects;
 
+/**
+ * Represents a song with a title, artist, genre,
+ * and duration in seconds.
+ */
 public class Song {
 
     private final String title;
@@ -11,71 +14,120 @@ public class Song {
     private final String genre;
     private final int lengthSeconds;
 
-
-/**
-     * Creates a song.
+    /**
+     * Creates a new Song.
      *
-     * @param title the song title; must not be null or blank
-     * @param artist the artist name; must not be null or blank
-     * @param genre the genre; null is stored as an empty string
-     * @param lengthSeconds the duration in whole seconds; must be positive
-     * @throws IllegalArgumentException if title or artist is null or blank,
-     *     or lengthSeconds is not positive
+     * @param title the song title
+     * @param artist the artist name
+     * @param genre the song genre
+     * @param lengthSeconds the duration in seconds
+     * @throws IllegalArgumentException for invalid inputs
      */
-    public Song(String title, String artist, String genre, int lengthSeconds) {
-        this.title = title;
-        this.artist = artist;
-        this.genre = genre;
-        this.lengthSeconds = lengthSeconds;
+    public Song(String title, String artist, String genre,
+        int lengthSeconds) {
 
-        if (title == null) {
-            throw new IllegalArgumentException("Song title cannot be empty.");
+        if (title == null || title.trim().isEmpty()) {
+            throw new IllegalArgumentException(
+                "Song title cannot be empty.");
         }
-        if (artist == null) {
-            throw new IllegalArgumentException("Artist cannot be empty.");
+
+        if (artist == null || artist.trim().isEmpty()) {
+            throw new IllegalArgumentException(
+                "Artist cannot be empty.");
         }
+
         if (lengthSeconds <= 0) {
-            throw new IllegalArgumentException("Song length must be positive.");
+            throw new IllegalArgumentException(
+                "Song length must be positive.");
         }
+
+        this.title = title.trim();
+        this.artist = artist.trim();
+        this.genre = genre == null ? "" : genre.trim();
+        this.lengthSeconds = lengthSeconds;
     }
 
     /**
-     * @return title the title of the song
+     * Returns the song title.
+     *
+     * @return the title
      */
     public String getTitle() {
         return title;
     }
 
     /**
-     * @return artist the artist of the song
+     * Returns the artist.
+     *
+     * @return the artist name
      */
     public String getArtist() {
         return artist;
     }
 
     /**
-     * @return genre the genre of the song
+     * Returns the genre.
+     *
+     * @return the genre
      */
     public String getGenre() {
         return genre;
     }
 
-    /** 
-     * @return the duration in whole seconds 
-    */
+    /**
+     * Returns the song duration.
+     *
+     * @return duration in seconds
+     */
     public int getLengthSeconds() {
         return lengthSeconds;
     }
 
-    /** 
-     * @return condensed song information with duration as minutes:seconds 
-    */
+    /**
+     * Compares songs using title and artist.
+     *
+     * @param other the object being compared
+     * @return true if title and artist match
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+
+        if (!(other instanceof Song)) {
+            return false;
+        }
+
+        Song otherSong = (Song)other;
+
+        return title.equals(otherSong.title)
+            && artist.equals(otherSong.artist);
+    }
+
+    /**
+     * Generates a hash code using title and artist.
+     *
+     * @return the hash code
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, artist);
+    }
+
+    /**
+     * Returns formatted song information.
+     *
+     * @return title, artist, and duration
+     */
     @Override
     public String toString() {
         int minutes = lengthSeconds / 60;
         int seconds = lengthSeconds % 60;
-        return title + " - " + artist + " (" + minutes + ":"
-            + (seconds < 10 ? "0" : "") + seconds + ")";
-    }
 
+        return title + " - " + artist + " ("
+            + minutes + ":"
+            + (seconds < 10 ? "0" : "")
+            + seconds + ")";
+    }
 }
