@@ -151,6 +151,8 @@ public class SongTest {
     public void toStringTest() {
         assertEquals("Title - Artist (3:05)",
             song.toString());
+        assertEquals("Title - Artist (0:01)", new Song("Title", "Artist", null, 1).toString());
+        assertEquals("Title - Artist (1:00)", new Song("Title", "Artist", "Pop", 60).toString());
 
         Song oneSecond = new Song(
             "Title", "Artist", null, 1);

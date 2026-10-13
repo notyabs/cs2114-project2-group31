@@ -124,6 +124,13 @@ public class Song {
     public String toString() {
         int minutes = lengthSeconds / 60;
         int seconds = lengthSeconds % 60;
+        if (seconds < 10) {
+            return title + " - " + artist + " ("
+                + minutes + ":0" + seconds + ")";
+        }
+        return title + " - " + artist + " ("
+            + minutes + ":" + seconds + ")";
+    }
 
         return title + " - " + artist + " ("
             + minutes + ":"
