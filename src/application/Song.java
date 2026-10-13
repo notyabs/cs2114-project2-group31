@@ -4,10 +4,10 @@ package application;
 import java.util.Objects;
 
 /**
- * Represents a song with a title, artist, genre,
- * and duration in seconds.
+ * Represents a song with a title, artist, genre, and duration in seconds.
  */
-public class Song {
+public class Song
+{
 
     private final String title;
     private final String artist;
@@ -17,28 +17,33 @@ public class Song {
     /**
      * Creates a new Song.
      *
-     * @param title the song title
-     * @param artist the artist name
-     * @param genre the song genre
-     * @param lengthSeconds the duration in seconds
-     * @throws IllegalArgumentException for invalid inputs
+     * @param title
+     *            the song title
+     * @param artist
+     *            the artist name
+     * @param genre
+     *            the song genre
+     * @param lengthSeconds
+     *            the duration in seconds
+     * @throws IllegalArgumentException
+     *             for invalid inputs
      */
-    public Song(String title, String artist, String genre,
-        int lengthSeconds) {
+    public Song(String title, String artist, String genre, int lengthSeconds)
+    {
 
-        if (title == null || title.trim().isEmpty()) {
-            throw new IllegalArgumentException(
-                "Song title cannot be empty.");
+        if (title == null || title.trim().isEmpty())
+        {
+            throw new IllegalArgumentException("Song title cannot be empty.");
         }
 
-        if (artist == null || artist.trim().isEmpty()) {
-            throw new IllegalArgumentException(
-                "Artist cannot be empty.");
+        if (artist == null || artist.trim().isEmpty())
+        {
+            throw new IllegalArgumentException("Artist cannot be empty.");
         }
 
-        if (lengthSeconds <= 0) {
-            throw new IllegalArgumentException(
-                "Song length must be positive.");
+        if (lengthSeconds <= 0)
+        {
+            throw new IllegalArgumentException("Song length must be positive.");
         }
 
         this.title = title.trim();
@@ -47,63 +52,76 @@ public class Song {
         this.lengthSeconds = lengthSeconds;
     }
 
+
     /**
      * Returns the song title.
      *
      * @return the title
      */
-    public String getTitle() {
+    public String getTitle()
+    {
         return title;
     }
+
 
     /**
      * Returns the artist.
      *
      * @return the artist name
      */
-    public String getArtist() {
+    public String getArtist()
+    {
         return artist;
     }
+
 
     /**
      * Returns the genre.
      *
      * @return the genre
      */
-    public String getGenre() {
+    public String getGenre()
+    {
         return genre;
     }
+
 
     /**
      * Returns the song duration.
      *
      * @return duration in seconds
      */
-    public int getLengthSeconds() {
+    public int getLengthSeconds()
+    {
         return lengthSeconds;
     }
+
 
     /**
      * Compares songs using title and artist.
      *
-     * @param other the object being compared
+     * @param other
+     *            the object being compared
      * @return true if title and artist match
      */
     @Override
-    public boolean equals(Object other) {
-        if (this == other) {
+    public boolean equals(Object other)
+    {
+        if (this == other)
+        {
             return true;
         }
 
-        if (!(other instanceof Song)) {
+        if (!(other instanceof Song))
+        {
             return false;
         }
 
         Song otherSong = (Song)other;
 
-        return title.equals(otherSong.title)
-            && artist.equals(otherSong.artist);
+        return title.equals(otherSong.title) && artist.equals(otherSong.artist);
     }
+
 
     /**
      * Generates a hash code using title and artist.
@@ -111,9 +129,11 @@ public class Song {
      * @return the hash code
      */
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hash(title, artist);
     }
+
 
     /**
      * Returns formatted song information.
@@ -130,11 +150,5 @@ public class Song {
         }
         return title + " - " + artist + " ("
             + minutes + ":" + seconds + ")";
-    }
-
-        return title + " - " + artist + " ("
-            + minutes + ":"
-            + (seconds < 10 ? "0" : "")
-            + seconds + ")";
     }
 }

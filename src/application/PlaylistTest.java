@@ -82,6 +82,7 @@ public class PlaylistTest{
     /**
     * Tests removeSong() when playlist is empty/null 
     */
+    @Test
     public void removeSongTest2(){
         setUp();
         assertFalse(playlist.removeSong(a));
@@ -190,6 +191,7 @@ public class PlaylistTest{
     /**
      * Tests swapSongs()
      */
+    @Test
     public void swapSongsTest(){
         addThree();
         playlist.swapSongs(0, 2);
